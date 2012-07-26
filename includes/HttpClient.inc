@@ -280,7 +280,11 @@ class HttpClientException extends Exception {
    * Gets the response object, if any.
    */
   public function getResponse() {
-    return clone $this->response;
+    $response = $this->response;
+    if (is_object($response)) {
+      $response = clone $response;
+    }
+    return $response;
   }
 }
 

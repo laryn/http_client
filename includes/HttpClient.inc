@@ -142,7 +142,9 @@ class HttpClient {
       else {
         $request->data = (string) $request->data;
       }
-      $request->setHeader('Content-length', strlen($request->data));
+      if (is_string($request->data)) {
+        $request->setHeader('Content-length', strlen($request->data));
+      }
     }
     if ($this->formatter) {
       $request->setHeader('Accept', $this->formatter->accepts());

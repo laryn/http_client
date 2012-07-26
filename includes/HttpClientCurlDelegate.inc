@@ -43,8 +43,6 @@ class HttpClientCurlDelegate extends HttpClientDelegate {
 
     curl_setopt($ch, CURLOPT_USERAGENT, 'Drupal (+http://drupal.org/)');
 
-    curl_setopt_array($ch, $curlopts);
-
     curl_setopt($ch, CURLOPT_HEADER, 1);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $request->method);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -59,6 +57,9 @@ class HttpClientCurlDelegate extends HttpClientDelegate {
       curl_setopt($ch, CURLOPT_POSTFIELDS, $request->data);
     }
     curl_setopt($ch, CURLOPT_HTTPHEADER, $request->getHeaders());
+
+    curl_setopt_array($ch, $curlopts);
+
     return $ch;
   }
 }

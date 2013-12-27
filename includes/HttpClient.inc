@@ -368,7 +368,7 @@ class HttpClientBaseFormatter implements HttpClientFormatter {
         break;
       case self::FORMAT_JSON:
         $response = drupal_json_decode($data);
-        if ($response === NULL) {
+        if ($response === NULL && json_last_error() != JSON_ERROR_NONE) {
           throw new Exception(t('Unserialization of response body failed.'), 1);
         }
         return $response;

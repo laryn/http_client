@@ -36,7 +36,7 @@ class HttpClientOAuth2 implements HttpClientAuthentication {
   public function authenticate($request) {
     // Get an access_token.
     try {
-      $oauth2 = OAuth2Client::create($this->settings);
+      $oauth2 = new OAuth2Client($this->settings);
       $access_token = $oauth2->getAccessToken();
     }
     catch (Exception $e) {

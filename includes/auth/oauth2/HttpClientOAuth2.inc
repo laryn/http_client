@@ -36,7 +36,8 @@ class HttpClientOAuth2 implements HttpClientAuthentication {
   public function authenticate($request) {
     // Get an access_token.
     try {
-      $oauth2 = new OAuth2Client($this->settings);
+      module_load_include('inc', 'oauth2_client', 'oauth2_client');
+      $oauth2 = new OAuth2\Client($this->settings);
       $access_token = $oauth2->getAccessToken();
     }
     catch (Exception $e) {

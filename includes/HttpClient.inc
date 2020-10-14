@@ -596,7 +596,7 @@ class HttpClientRequest {
   public function getHeaders() {
     $headers = array();
     foreach ($this->headers as $name => $values) {
-      $headers[] = $name . ': ' . join($values, ', ');
+      $headers[] = $name . ': ' . join(', ', $values);
     }
     return $headers;
   }

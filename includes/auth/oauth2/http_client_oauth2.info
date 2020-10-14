@@ -3,7 +3,7 @@ description = Provides an OAuth2 authentication mechanism for the Http Client
 dependencies[] = http_client
 dependencies[] = oauth2_client
 
-files[] = includes/auth/oauth2/HttpClientOAuth2.inc
+files[] = HttpClientOAuth2.inc
 
 package = Services - clients
 core = 7.x

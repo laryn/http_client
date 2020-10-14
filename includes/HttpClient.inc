@@ -268,7 +268,7 @@ abstract class HttpClientDelegate {
       }
     }
     $matches = array();
-    if (preg_match('/HTTP\/1.\d (\d{3}) (.*)/', $headers, $matches)) {
+    if (preg_match('/HTTP\/[\d.]+ (\d{3}) (.*)/', $headers, $matches)) {
       $obj->responseCode = intVal(trim($matches[1]), 10);
       $obj->responseMessage = trim($matches[2]);
 

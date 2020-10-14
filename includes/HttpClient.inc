@@ -11,6 +11,8 @@ class HttpClient {
   protected $lastError = FALSE;
   protected $delegate = NULL;
 
+  public $lastRequest;
+
   public $rawResponse;
   public $lastResponse;
 
@@ -156,6 +158,7 @@ class HttpClient {
     }
 
     $response = $this->delegate->execute($this, $request);
+    $this->lastRequest = $request;
     $this->lastResponse = $response;
 
     $result = NULL;

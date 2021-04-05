@@ -20,7 +20,7 @@ function http_client($authentication = NULL, $formatter = NULL, $request_alter =
         $delegates = $res + $delegates;
       }
     }
-    drupal_alter('http_client_delegates', $delegates);
+    backdrop_alter('http_client_delegates', $delegates);
     if (!empty($delegates)) {
       $delegate = array_pop($delegates);
     }
@@ -37,4 +37,23 @@ function http_client_http_client_delegates() {
     $delegates['curl'] = new HttpClientCurlDelegate();
   }
   return $delegates;
+}
+
+/**
+ * Implements hook_autoload_info().
+ */
+function http_client_autoload_info() {
+  return array(
+    'HttpClient' => 'includes/HttpClient.inc',
+    'HttpClientDelegate' => 'includes/HttpClient.inc',
+    'HttpClientException' => 'includes/HttpClient.inc',
+    'HttpClientBaseFormatter' => 'includes/HttpClient.inc',
+    'HttpClientCompositeFormatter' => 'includes/HttpClient.inc',
+    'HttpClientFormatter' => 'includes/HttpClient.inc',
+    'HttpClientAuthentication' => 'includes/HttpClient.inc',
+    'HttpClientRequest' => 'includes/HttpClient.inc',
+    'HttpClientCurlDelegate' => 'includes/HttpClientCurlDelegate.inc',
+    'HttpClientBasicAuth' => 'includes/auth/basic/HttpClientBasicAuth.inc',
+    'HttpClientXMLFormatter' => 'includes/formatter/HttpClientXMLFormatter.inc',
+  );
 }

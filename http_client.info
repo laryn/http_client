@@ -1,11 +1,5 @@
 name = Http Client
 description = Provides a Http client for use with the services Http server
-
-files[] = includes/HttpClient.inc
-files[] = includes/HttpClientCurlDelegate.inc
-files[] = includes/auth/basic/HttpClientBasicAuth.inc
-files[] = includes/auth/oauth2/HttpClientOAuth2.inc
-files[] = includes/formatter/HttpClientXMLFormatter.inc
-
 package = Services - clients
-core = 7.x
+backdrop = 1.x
+type = module

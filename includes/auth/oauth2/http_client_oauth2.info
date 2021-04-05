@@ -1,9 +1,8 @@
 name = Http Client OAuth2
 description = Provides an OAuth2 authentication mechanism for the Http Client
+package = Services - clients
+backdrop = 1.x
+type = module
+
 dependencies[] = http_client
 dependencies[] = oauth2_client
-
-files[] = HttpClientOAuth2.inc
-
-package = Services - clients
-core = 7.x

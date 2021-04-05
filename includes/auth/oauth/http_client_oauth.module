@@ -1,2 +1,11 @@
 <?php
 // All functionality is in includes/HttpClientOAuth.inc
+
+/**
+ * Implements hook_autoload_info().
+ */
+function http_client_oauth_autoload_info() {
+  return array(
+    'HttpClientOAuth' => 'HttpClientOAuth.inc',
+  );
+}
